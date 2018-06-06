@@ -3,6 +3,7 @@
 ### [Intro to Windows ML](overview.md)
 ### [Intro to Machine Learning](ml-overview.md)
 ## What's new?
+### RS5
 ## Get started
 ### [UWP (C#)](get-started.md)
 ### .Net (C++)
@@ -10,6 +11,10 @@
 ### [Get an ONNX model](get-onnx-model.md)
 ### [Convert a model to ONNX](conversion-samples.md)
 ### [Integrate a model into your app](integrate-model.md)
+## Advanced topics
+### [Load models from a stream](load-models-stream.md)
+### [Register and implement custom operators](custom-operators.md)
+### [Use multiple models](multiple-models.md)
 ## Tutorials
 ### [Train an ONNX model with VS Tools for AI](train-ai-model.md)
 ### [Emotion Detection with FER](https://docs.microsoft.com/labs/insiderdevtour2018/machinelearning/index?ocid=idt_labs_cta_web2lab_machinelearning&tutorial-step=2)
