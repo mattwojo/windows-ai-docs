@@ -1,94 +1,88 @@
 ---
 author: serenaz
-title: Windows ML overview
-description: Learn about Windows Machine Learning and how to develop with Windows ML.
+title: Overview of Windows AI
+description:
 ms.author: sezhen
-ms.date: 03/07/2018
+ms.date: 06/17/2018
 ms.topic: article
 ms.prod: windows
 ms.technology: uwp
 keywords: windows 10, uwp, windows machine learning
 ms.localizationpriority: medium
 ---
-# Windows ML overview
 
-Windows ML provides hardware-accelerated, on-device evaluation of trained machine learning models on Windows 10 devices. With the Windows ML APIs, you can use machine learning within Windows applications, bringing intelligence to the edge. In this overview, we'll cover how you can develop intelligent edge applications with Windows ML.
+# Overview
 
-## Video summary
+## What is Windows AI?
 
-> [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
+Windows AI is the platform for AI capabilities on Windows. With Windows AI, developers can take advantage of hardware optimizations and interchangeable AI models to build intelligent applications on Windows devices.
 
-## How to develop with Windows ML
+## What is Windows ML?
+
+As part of the Windows AI platform, Windows ML is a set of [WinRT APIs](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) (C# and C++) that allow developers to use machine learning in Windows applications. Windows ML evaluates trained models locally, providing hardware-accelerated performance by leveraging the device's CPU or GPU, and computes evaluations for both classical ML algorithms and Deep Learning.
+
+### Local evaluation
+
+Windows ML provides local, on-device evaluation, offering a number of benefits:
+
+:::row:::
+    :::column:::
+        ![quick](images/i_quick-start.png)
+
+        **Low latency**
+
+        When scenarios require real-time results
+    :::column-end:::
+    :::column:::
+        ![lock](images/i_lock.png)
+
+        **Data privacy**
+
+        When your customers prefer that you don’t send their data off the device
+    :::column-end:::
+    :::column:::
+        ![offline](images/i_offline.png)
+
+        **Offline**
+
+        When there is no connectivity
+    :::column-end:::
+:::row-end:::
+
+### Hardware optimization
+
+Windows ML accelerates the evaluation of Deep Learning models using the GPU on DirectX12 capable devices, and CPU optimizations additionally enable high-performance evaluation of both classical ML and Deep Learning algorithms.
+
+For computer vision scenarios, Windows ML simplifies and optimizes the use of image, video, and camera data by handling frame pre-processing and providing camera pipeline setup for model input.
+
+### Interchangeable AI models
+
+![ONNX](images/onnx.png)
+
+Windows ML evaluates AI models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. ONNX is an open format for ML models, allowing you to interchange models between various ML frameworks and tools.
+
+### Developer flow
+
+Windows ML simplifies the process of using machine learning in your app:
 
 ![windows ML developer flow](images/winmlstory.png)
 
-1. From any training environment, you'll need an ONNX model.
-2. Add the ONNX model file(s) to your Windows app.
-3. Call the Windows ML APIs in your application code.
-4. Evaluate on any Windows 10 device!
+1. Get an ONNX model.
+2. Add the ONNX model file(s) to your project.
+3. Load, bind, and evaluate the model in your application code.
+4. Run on any Windows 10 device!
 
-## ONNX models
+To learn more about how to develop with Windows ML, please see our [How-to](how-to.md) section.
 
-In the huge ecosystem of ML frameworks and tools, [Open Neural Network Exchange](https://onnx.ai) (ONNX) provides an open format for ML models, allowing you to import and export models between various frameworks. ONNX defines an extensible computation graph model, as well as definitions of built-in operators and standard data types. ONNX is being co-developed by Microsoft, Amazon and Facebook as an open-source project.
+### Video summary
 
-To use Windows ML, you'll need a pre-trained machine learning model in the [Open Neural Network Exchange (ONNX)](https://onnx.ai) format. Windows ML supports the v1.0 release of the ONNX format, which allows developers to use models produced by different training frameworks.
+> [!VIDEO https://www.youtube.com/embed/8MCDSlm326U]
 
-### 1. ONNX Galleries
+### Supported versions and hardware
 
-For a list of publicly available ONNX models, see [ONNX Models](https://github.com/onnx/models) on GitHub.
+- [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) - Build 17110 or higher.
+- which versions/devices of windows?
 
-Azure Model Gallery
+## See also
 
-### 2. Train your own ONNX model
-
-Custom Vision, Azure ML
-
-### 3. Convert existing models to ONNX
-
-Many training frameworks already natively support ONNX models, and there are converter tools for many frameworks and libraries. To learn how to export from frameworks such as Caffe 2, PyTorch, CNTK, Chainer, and more, see [ONNX tutorials](https://github.com/onnx/tutorials) on GitHub.
-
-You can also use [WinMLTools](https://pypi.org/project/winmltools/) to convert trained machine learning model to the ONNX format accepted by Windows ML. WinMLTools supports conversion from these formats:
-
-- Core ML
-- Scikit-Learn
-- XGBoost
-- LibSVM
-
-To learn how to install and use WinMLTools, please see [Convert a model](conversion-samples.md).
-
-With the Visual Studio Tools for AI extension, you can also use WinMLTools within the Visual Studio IDE for a more friendly, click-through experience to convert your models into ONNX format. To learn more, please visit [VS Tools for AI](https://github.com/Microsoft/vs-tools-for-ai/).
-
-## Windows ML APIs
-
-Install the [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) - Build 17110 or higher.
-
-### Automatic interface code generation
-
-With an ONNX model file, Windows ML's code generator creates an interface to interact with the model in your app. The generated interface includes wrapper classes that represent the model, inputs, and outputs. The generated code calls the [Windows ML API](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily load, bind, and evaluate the model in your project. The code generator currently supports both C# and C++/CX.
-
-For UWP developers, Windows ML's automatic code generator is natively integrated with [Visual Studio](https://developer.microsoft.com/windows/downloads). Inside your Visual Studio project, simply add your ONNX file as an existing item, and VS will generate Windows ML wrapper classes in a new interface file.
-
-You can also use the command line tool `mlgen.exe`, which comes with the Windows SDK, to generate Windows ML wrapper classes. The tool is located in `(SDK_root)\bin\<version>\x64` or `(SDK_root)\bin\<version>\x86`, where SDK_root is the SDK installation directory. To run the tool, use the command below.
-
-```
-mlgen -i INPUT-FILE -l LANGUAGE -n NAMESPACE [-o OUTPUT-FILE]
-```
-
-Input parameters definition:
-
-- `INPUT-FILE`: the ONNX model file
-- `LANGUAGE`: CPPCX or CS
-- `NAMESPACE`: the namespace of the generated code
-- `OUTPUT-FILE`: file path where the generated code will be written to. If OUTPUT-FILE is not specified, the generated code is written to the standard output
-
-To learn how to use the generated code in your app, see [Integrate a model](integrate-model.md).
-
-### Windows ML APIs
-
-Load, bind, evaluate.
-
-C# and C++
-
-## Next steps
-
-Try creating your first Windows ML app with a step-by-step tutorial in [Get Started](get-started.md).
+- [Blog: AI Platform for Windows Developers](https://blogs.windows.com/buildingapps/2018/03/07/ai-platform-windows-developers)

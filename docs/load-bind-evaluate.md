@@ -1,6 +1,6 @@
 ---
 author: serenaz
-title: Integrate a model into your app with Windows ML 
+title: Load, bind, and evaluate your model with Windows ML 
 description: Integrate a model into your app by following the load, bind, and evaluate pattern.
 ms.author: sezhen
 ms.date: 03/22/2018
@@ -10,57 +10,13 @@ ms.technology: uwp
 keywords: windows 10, uwp, winml, Windows machine learning
 ms.localizationpriority: medium
 ---
-# Integrate a model into your app with Windows ML
+# Load, bind, and evaluate your model with Windows ML
 
-Windows ML's [automatic code generation](overview.md#automatic-interface-code-generation) creates an interface that calls the [Windows ML APIs](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily interact with your model. Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app.
+Windows ML's [automatic code generation](mlgen.md) creates an interface that calls the [Windows ML APIs](/uwp/api/windows.ai.machinelearning.preview) for you, allowing you to easily interact with your model in both C# and C++.WinRT. Using the interface's generated wrapper classes, you'll follow the load, bind, and evaluate pattern to integrate your ML model into your app.
 
 ![load, bind, evaluate](images/load-bind-evaluate.png)
 
 In this article, we'll use the MNIST model from [Get Started](get-started.md) to demonstrate how to load, bind, and evaluate a model in your app.
-
-## Add the model
-
-First, you'll need to add your ONNX model to your Visual Studio project's Assets. If you're building a UWP app with [Visual Studio (version 15.7 - Preview 1)](https://www.visualstudio.com/vs/preview/), then Visual Studio will automatically generate the wrapper classes in a new file. For other workflows, you'll need to use the [mlgen](overview.md#automatic-interface-code-generation) tool to generate wrapper classes.
-
-Below are the Windows ML generated wrapper classes for the MNIST model. We'll use the remainder of this article to explain how to use these classes in your app.
-
-```csharp
-public sealed class MNISTModelInput
-{
-    public VideoFrame Input3 { get; set; }
-}
-
-public sealed class MNISTModelOutput
-{
-    public IList<float> Plus214_Output_0 { get; set; }
-    public MNISTModelOutput()
-    {
-        this.Plus214_Output_0 = new List<float>();
-    }
-}
-
-public sealed class MNISTModel
-{
-    private LearningModelPreview learningModel;
-    public static async Task<MNISTModel> CreateMNISTModel(StorageFile file)
-    {
-        LearningModelPreview learningModel = await LearningModelPreview.LoadModelFromStorageFileAsync(file);
-        MNISTModel model = new MNISTModel();
-        model.learningModel = learningModel;
-        return model;
-    }
-    public async Task<MNISTModelOutput> EvaluateAsync(MNISTModelInput input) {
-        MNISTModelOutput output = new MNISTModelOutput();
-        LearningModelBindingPreview binding = new LearningModelBindingPreview(learningModel);
-        binding.Bind("Input3", input.Input3);
-        binding.Bind("Plus214_Output_0", output.Plus214_Output_0);
-        LearningModelEvaluationResultPreview evalResult = await learningModel.EvaluateAsync(binding, string.Empty);
-        return output;
-    }
-}
-```
-
-**Note**: To make sure your model builds when you compile your application, right click on the `.onnx` file, and select **Properties**. For **Build Action**, select **Content**.
 
 ## Load
 

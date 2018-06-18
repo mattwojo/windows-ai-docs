@@ -1,24 +1,15 @@
-# [Welcome](index.md)
-## Overview
-### [Intro to Windows ML](overview.md)
-### [Intro to Machine Learning](ml-overview.md)
-## What's new?
-### RS5
-## Get started
-### [UWP (C#)](get-started.md)
-### .Net (C++)
-## How to
+# [Windows AI](index.md)
+## [What's new?](whats-new.md)
+## [Overview](overview.md)
+## [Get started](get-started.md)
+## [How-to](how-to.md)
 ### [Get an ONNX model](get-onnx-model.md)
 ### [Convert a model to ONNX](conversion-samples.md)
-### [Integrate a model into your app](integrate-model.md)
-## Advanced topics
-### [Load models from a stream](load-models-stream.md)
-### [Register and implement custom operators](custom-operators.md)
-### [Use multiple models](multiple-models.md)
-## Tutorials
+### [Add a model to your app](mlgen.md)
+### [Load, bind, and evaluate your model](load-bind-evaluate.md)
+## [Tutorials](tutorials.md)
 ### [Train an ONNX model with VS Tools for AI](train-ai-model.md)
 ### [Emotion Detection with FER](https://docs.microsoft.com/labs/insiderdevtour2018/machinelearning/index?ocid=idt_labs_cta_web2lab_machinelearning&tutorial-step=2)
 ### [Product Detection with Custom Vision](https://docs.microsoft.com/labs/insiderdevtour2018/machinelearning/index?ocid=idt_labs_cta_web2lab_machinelearning&tutorial-step=4)
-## Resources
-### [WinRT API](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview)
-### [GitHub Samples](https://github.com/Microsoft/Windows-Machine-Learning)
+## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview)
+## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)
