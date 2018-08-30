@@ -1,6 +1,6 @@
 ---
 author: rosanevallim
-title: Windows ML
+title: Windows Machine Learning
 description: With Windows ML, you can use trained machine learning models in your Windows applications.
 ms.author: rovalli
 ms.date: 08/08/2018
@@ -11,7 +11,7 @@ keywords: windows 10, windows ai, windows ml, winml, windows machine learning
 ms.localizationpriority: medium
 ---
 
-# Windows ML
+# Windows Machine Learning
 
 With Windows ML, you can integrate trained machine learning models in your Windows apps.
 
@@ -41,7 +41,7 @@ To build apps with Windows ML, you'll:
 1. [Integrate the model](integrate-model.md) into your app's code.
 1. Run on any Windows device!
 
-To see Windows ML in action, you can try out the sample apps in the [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5) repo on Github. To learn more about using Windows ML, take a look through our documentation.
+To see Windows ML in action, you can try out the sample apps in the [Windows-Machine-Learning](https://github.com/Microsoft/Windows-Machine-Learning/tree/master) repo on Github. To learn more about using Windows ML, take a look through our documentation.
 
 > [!NOTE]
 > Windows ML is a **pre-released** product which may be substantially modified before it’s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.

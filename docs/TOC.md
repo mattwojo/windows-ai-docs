@@ -1,5 +1,6 @@
-# [Windows ML](index.md)
+# [Windows Machine Learning](index.md)
 ## [Tutorial: Create a WinML Desktop app (C++)](get-started-desktop.md)
+## [Tutorial: Create a WinML UWP app (C#)](get-started-uwp.md)
 ## [Get ONNX models](get-onnx-model.md)
 ## [Convert trained models](convert-model-winmltools.md)
 ## [Integrate a model](integrate-model.md)
@@ -7,4 +8,4 @@
 ## [Performance and memory](performance-memory.md)
 ## [Release notes](release-notes.md)
 ## [API reference](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)
-## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5)
+## [Code samples](https://github.com/Microsoft/Windows-Machine-Learning)

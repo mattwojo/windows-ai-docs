@@ -17,7 +17,7 @@ Windows ML APIs can be leveraged to easily interact with machine learning models
 
 ![Load -> Bind -> Evaluate](images/load-bind-evaluate.png)
 
-We will be creating a somewhat simplified version of the SqueezeNet Object Detection sample, which is available on [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/RS5/Samples/SqueezeNetObjectDetection/Desktop/cpp). You can download the complete sample if you want to see what it will be like when you finish.
+We will be creating a somewhat simplified version of the SqueezeNet Object Detection sample, which is available on [GitHub](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/SqueezeNetObjectDetection/Desktop/cpp). You can download the complete sample if you want to see what it will be like when you finish.
 
 In this tutorial, you'll learn how to:
 
@@ -202,7 +202,7 @@ Next, we'll create a session based on the model and bind the input and output fr
         binding = LearningModelBinding{ session };
         // bind the intput image
         binding.Bind(L"data_0", ImageFeatureValue::CreateFromVideoFrame(imageFrame));
-        // temp: bind the output (we don't support unbound outputs yet)
+        // bind the output
         vector<int64_t> shape({ 1, 1000, 1, 1 });
         binding.Bind(L"softmaxout_1", TensorFloat::Create(shape));
 
