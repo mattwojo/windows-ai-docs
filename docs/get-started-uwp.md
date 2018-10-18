@@ -75,7 +75,7 @@ To make sure the model builds when we compile our application, right click on th
 
 Now, let's take a look at the newly generated code in the `mnist.cs` file. We have three classes:
 
-- **mnistModel** creates the machine learning model representation, creates a sessions on the system default device, binds the specific inputs and outputs to the model, and evaluates the model asynchronously. 
+- **mnistModel** creates the machine learning model representation, creates a session on the system default device, binds the specific inputs and outputs to the model, and evaluates the model asynchronously. 
 - **mnistInput** initializes the input types that the model expects. In this case, the input expects an [ImageFeatureValue](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.imagefeaturevalue).
 - **mnistOutput** initializes the types that the model will output. In this case, the output will be a list called `Plus214_Output_0` of type [TensorFloat](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.tensorfloat).
 
