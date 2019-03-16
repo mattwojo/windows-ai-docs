@@ -20,11 +20,9 @@ The following video walks through the sample that this tutorial is based on.
 
 > [!VIDEO https://www.youtube.com/embed/yC3HKAv0aj4]
 
-You can access the tutorial on [Microsoft Learn](https://docs.microsoft.com/learn/modules/add-machine-learning-to-uwp-app/), an interactive tutorial platform.
+<!-- You can access the tutorial on [Microsoft Learn](https://docs.microsoft.com/learn/modules/add-machine-learning-to-uwp-app/), an interactive tutorial platform. -->
 
 If you'd prefer to simply look at the code of the finished tutorial, you can find it on the [WinML GitHub repository](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cs). It's also available in [C++/CX](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Samples/MNIST/UWP/cppcx).
-
-<!--
 
 ## Prerequisites
 
@@ -189,4 +187,3 @@ That's it - you've made your first Windows ML application! For more samples that
 
 [!INCLUDE [help](includes/get-help.md)]
 
--->
